@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuite tests="4" failures="0" name="robot.challenge.command.MoveCommandTest" time="0" errors="0" skipped="0">
   <properties>
-    <property name="idea.version" value="2021.3.2"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.2+8-86"/>
     <property name="sun.boot.library.path" value="/Users/praitheesh/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib"/>
@@ -23,11 +22,10 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="maven.ext.class.path" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar"/>
-    <property name="classworlds.conf" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf"/>
+    <property name="classworlds.conf" value="/Users/praitheesh/.m2/wrapper/dists/apache-maven-3.8.4-bin/66e9f8f4/apache-maven-3.8.4/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/praitheesh/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
-    <property name="maven.conf" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/conf"/>
+    <property name="maven.conf" value="/Users/praitheesh/.m2/wrapper/dists/apache-maven-3.8.4-bin/66e9f8f4/apache-maven-3.8.4/conf"/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="61.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -39,10 +37,10 @@
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="17"/>
     <property name="user.name" value="praitheesh"/>
-    <property name="java.class.path" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds.license:/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar"/>
+    <property name="java.class.path" value="/Users/praitheesh/Projects/RobotChallenge/.mvn/wrapper/maven-wrapper.jar"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2021.3.2 test"/>
+    <property name="sun.java.command" value="org.apache.maven.wrapper.MavenWrapperMain clean install"/>
     <property name="java.home" value="/Users/praitheesh/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -50,12 +48,14 @@
     <property name="java.version" value="17.0.2"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3"/>
+    <property name="sun.stderr.encoding" value="UTF-8"/>
+    <property name="maven.home" value="/Users/praitheesh/.m2/wrapper/dists/apache-maven-3.8.4-bin/66e9f8f4/apache-maven-3.8.4"/>
     <property name="file.separator" value="/"/>
     <property name="java.version.date" value="2022-01-18"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.stdout.encoding" value="UTF-8"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
   </properties>
