@@ -11,7 +11,6 @@ class CommandFactoryTest {
             CommandFactory factory = new CommandFactory();
             factory.getCommand("INVALID INPUT");
                 });
-
     }
 
     @Test

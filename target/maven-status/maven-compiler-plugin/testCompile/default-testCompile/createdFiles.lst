@@ -1,0 +1,7 @@
+robot/challenge/controller/RobotControllerTest.class
+robot/challenge/command/MoveCommandTest.class
+robot/challenge/command/CommandFactoryTest.class
+robot/challenge/command/TurnCommandTest.class
+robot/challenge/model/FacingTest.class
+robot/challenge/command/PlaceCommandTest.class
+robot/challenge/service/RobotServiceTest.class

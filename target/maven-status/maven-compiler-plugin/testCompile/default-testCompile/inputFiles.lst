@@ -1,0 +1,7 @@
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/model/FacingTest.java
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/service/RobotServiceTest.java
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/command/MoveCommandTest.java
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/command/CommandFactoryTest.java
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/command/PlaceCommandTest.java
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/command/TurnCommandTest.java
+/Users/praitheesh/Projects/RobotChallenge/src/test/java/robot/challenge/controller/RobotControllerTest.java

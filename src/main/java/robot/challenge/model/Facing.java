@@ -5,14 +5,16 @@ public enum Facing {
 
     /**
      * Rotate Facing by +90 degrees
+     *
      * @return
      */
     public Facing turnLeft() {
-        return values()[(ordinal()+4 - 1) % 4];
+        return values()[(ordinal() + 4 - 1) % 4];
     }
 
     /**
      * Rotate the Facing by -90 degrees
+     *
      * @return
      */
     public Facing turnRight() {
