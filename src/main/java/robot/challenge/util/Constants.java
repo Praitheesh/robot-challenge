@@ -18,7 +18,7 @@ public final class Constants {
 
     //Messages
     public static final String PLACE_COMMAND_FIRST = "Please place your ToyRobot on the table by type PLACE X,Y,F";
-    public static final String INVALID_POSITION_MESSAGE = "Unable to place or move the Robot, Border of the table is (" + TABLE_MAX_X_SIZE + "," + TABLE_MAX_Y_SIZE + ")";
+    public static final String INVALID_POSITION_MESSAGE = "Unable to place or move the Robot, Dimension of the table is (" + TABLE_MAX_X_SIZE + "," + TABLE_MAX_Y_SIZE + ")";
     public static final String INVALID_INPUT = "Invalid input.";
     public static final String INVALID_PLACE_INPUT = "Invalid PLACE command";
     public static final String WELCOME_MESSAGE = "Welcome to ToyRobotSimulator, Lets play.";

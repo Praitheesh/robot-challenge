@@ -4,6 +4,7 @@ import robot.challenge.command.Command;
 import robot.challenge.command.CommandFactory;
 import robot.challenge.exception.PositionOutOfBoundException;
 import robot.challenge.exception.UnsupportedCommandException;
+import robot.challenge.model.CommandEnum;
 import robot.challenge.model.Position;
 import robot.challenge.model.Robot;
 import robot.challenge.model.Table;
@@ -70,12 +71,9 @@ public class RobotController {
             if (robotService.validateRobotPosition(table, newPosition.get())) {
                 table.getRobot().setPosition(new Position(newPosition.get().getX(), newPosition.get().getY(), newPosition.get().getFacing()));
             } else {
+                commandFactory.getCommand(CommandEnum.REPORT.toString()).execute(table.getRobot().getPosition());
                 throw new PositionOutOfBoundException(Constants.INVALID_POSITION_MESSAGE);
             }
         }
-    }
-
-    public RobotService getRobotService() {
-        return this.robotService;
     }
 }
