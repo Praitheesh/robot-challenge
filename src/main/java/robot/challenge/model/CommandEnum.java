@@ -1,7 +1,7 @@
 package robot.challenge.model;
 
 public enum CommandEnum {
-    PLACE("PLACE") , MOVE("MOVE") , LEFT("LEFT") , RIGHT("RIGHT") , REPORT("REPORT");
+    PLACE("PLACE") , MOVE("MOVE") , LEFT("LEFT") , RIGHT("RIGHT") , REPORT("REPORT"), ROBOT("ROBOT");
 
     String description;
 

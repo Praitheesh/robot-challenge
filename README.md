@@ -3,6 +3,7 @@ Description
 -----------
 - The application is a simulation of a toy robot moving on a square tabletop,of dimensions 5 units x 5 units.
 - There are no other obstructions on the table surface.
+- Multiple robots will operate on the table
 - Application can read in commands of the following form:
 
       PLACE X,Y,F
@@ -10,6 +11,7 @@ Description
       LEFT
       RIGHT
       REPORT
+      ROBOT
 
 - PLACE will put the toy robot on the table in position X,Y and facing NORTH,
   SOUTH, EAST or WEST.
@@ -24,7 +26,7 @@ Description
   without changing the position of the robot.
 - REPORT will announce the X,Y and F of the robot. This can be in any form,
   but standard output is sufficient.
-
+- A ROBOT <number> command will make the robot identified by active i.e. subsequent commands will affect that robot's position/direction. Any command that affects position/direction (e.g. MOVE, LEFT, RIGHT...) will affect only the active robot.
 - A robot that is not on the table can choose the ignore the MOVE, LEFT, RIGHT
   and REPORT commands.
 - 
@@ -45,5 +47,5 @@ Description
   LEFT
   RIGHT
   REPORT
-
+  ROBOT
 ```

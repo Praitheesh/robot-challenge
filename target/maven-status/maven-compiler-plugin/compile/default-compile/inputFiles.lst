@@ -7,6 +7,7 @@
 /Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/model/TurnEnum.java
 /Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/model/CommandEnum.java
 /Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/controller/RobotController.java
+/Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/command/RobotCommand.java
 /Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/exception/PositionOutOfBoundException.java
 /Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/exception/UnsupportedCommandException.java
 /Users/praitheesh/Projects/RobotChallenge/src/main/java/robot/challenge/model/Table.java

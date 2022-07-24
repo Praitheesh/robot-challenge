@@ -30,4 +30,8 @@ public class RobotService {
             return false;
         }
     }
+
+    public boolean validateRobotOccupancy(Table table, Position newPosition) {
+        return table.getRobots().size() <= 1 || table.getRobots().values().stream().noneMatch(r -> r.getPosition() != null && r.getPosition().equals(newPosition));
+    }
 }

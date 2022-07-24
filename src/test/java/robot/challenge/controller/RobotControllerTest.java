@@ -2,10 +2,7 @@ package robot.challenge.controller;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import robot.challenge.command.MoveCommand;
-import robot.challenge.command.PlaceCommand;
-import robot.challenge.command.ReportCommand;
-import robot.challenge.command.TurnCommand;
+import robot.challenge.command.*;
 import robot.challenge.exception.PositionOutOfBoundException;
 import robot.challenge.exception.UnsupportedCommandException;
 import robot.challenge.model.Facing;
@@ -21,7 +18,7 @@ class RobotControllerTest {
 
     @Test
     public void testPlaceRobotTest() throws PositionOutOfBoundException, UnsupportedCommandException {
-        table.setRobot(new Robot());
+        table.addRobot(new Robot());
         controller.operateRobot(table, new PlaceCommand("PLACE 3,4,NORTH"));
         assertEquals(3, table.getRobot().getPosition().getX());
         assertEquals(4, table.getRobot().getPosition().getY());
@@ -31,7 +28,7 @@ class RobotControllerTest {
     @Test
     public void testWithOutPlaceFirstTest() {
         Assertions.assertThrows(UnsupportedCommandException.class, () -> {
-            table.setRobot(new Robot());
+            table.addRobot(new Robot());
             controller.operateRobot(table, new PlaceCommand("MOVE"));
             assertEquals(3, table.getRobot().getPosition().getX());
             assertEquals(4, table.getRobot().getPosition().getY());
@@ -42,7 +39,7 @@ class RobotControllerTest {
 
     @Test
     public void testMove() throws PositionOutOfBoundException, UnsupportedCommandException {
-        table.setRobot(new Robot());
+        table.addRobot(new Robot());
         controller.operateRobot(table, new PlaceCommand("PLACE 4,4,EAST"));
         controller.operateRobot(table, new MoveCommand());
         assertEquals(5, table.getRobot().getPosition().getX());
@@ -53,7 +50,7 @@ class RobotControllerTest {
     @Test
     public void testPlaceMoveTurn() {
         Assertions.assertThrows(PositionOutOfBoundException.class, () -> {
-            table.setRobot(new Robot());
+            table.addRobot(new Robot());
             controller.operateRobot(table, new PlaceCommand("PLACE 4,4,EAST"));
             controller.operateRobot(table, new MoveCommand());
             assertEquals(5, table.getRobot().getPosition().getX());
@@ -73,7 +70,7 @@ class RobotControllerTest {
 
     @Test
     public void testExampleA() throws PositionOutOfBoundException, UnsupportedCommandException {
-        table.setRobot(new Robot());
+        table.addRobot(new Robot());
         controller.operateRobot(table, new PlaceCommand("PLACE 0,0,NORTH"));
         controller.operateRobot(table, new MoveCommand());
         controller.operateRobot(table, new ReportCommand());
@@ -84,7 +81,7 @@ class RobotControllerTest {
 
     @Test
     public void testExampleB() throws PositionOutOfBoundException, UnsupportedCommandException {
-        table.setRobot(new Robot());
+        table.addRobot(new Robot());
         controller.operateRobot(table, new PlaceCommand("PLACE 0,0,NORTH"));
         controller.operateRobot(table, new TurnCommand(TurnEnum.LEFT));
         controller.operateRobot(table, new ReportCommand());
@@ -95,7 +92,7 @@ class RobotControllerTest {
 
     @Test
     public void testExampleC() throws PositionOutOfBoundException, UnsupportedCommandException {
-        table.setRobot(new Robot());
+        table.addRobot(new Robot());
         controller.operateRobot(table, new PlaceCommand("PLACE 1,2,EAST"));
         controller.operateRobot(table, new MoveCommand());
         controller.operateRobot(table, new MoveCommand());
@@ -105,5 +102,27 @@ class RobotControllerTest {
         assertEquals(3, table.getRobot().getPosition().getX());
         assertEquals(3, table.getRobot().getPosition().getY());
         assertEquals(Facing.NORTH, table.getRobot().getPosition().getFacing());
+    }
+
+    @Test
+    public void testTwoRobotPlaceOccupancy() throws PositionOutOfBoundException, UnsupportedCommandException {
+        table.addRobot(new Robot());
+        controller.operateRobot(table, new PlaceCommand("PLACE 1,1,NORTH"));
+        controller.operateRobot(table, new MoveCommand());
+        controller.operateRobot(table, new MoveCommand());
+        controller.operateRobot(table, new PlaceCommand("PLACE 1,3,NORTH"));
+        assertEquals(1, table.getRobots().size());
+    }
+
+    @Test
+    public void testTwoRobotSuccessPlacement() {
+        controller.executeInput("PLACE 1,1,NORTH");
+        controller.executeInput("MOVE");
+        controller.executeInput("MOVE");
+        controller.executeInput("PLACE 2,4,NORTH");
+        assertEquals(2, table.getRobots().size());
+        assertEquals(2, table.getActiveRobotId());
+        controller.executeInput("ROBOT 1");
+        assertEquals(1, table.getActiveRobotId());
     }
 }

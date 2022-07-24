@@ -1,5 +1,7 @@
 package robot.challenge.model;
 
+import java.util.Objects;
+
 public class Position {
 
     private int x;
@@ -34,5 +36,18 @@ public class Position {
 
     public void setFacing(Facing facing) {
         this.facing = facing;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Position)) return false;
+        Position position = (Position) o;
+        return x == position.x && y == position.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

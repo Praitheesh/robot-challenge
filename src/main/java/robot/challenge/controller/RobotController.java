@@ -2,6 +2,7 @@ package robot.challenge.controller;
 
 import robot.challenge.command.Command;
 import robot.challenge.command.CommandFactory;
+import robot.challenge.command.PlaceCommand;
 import robot.challenge.exception.PositionOutOfBoundException;
 import robot.challenge.exception.UnsupportedCommandException;
 import robot.challenge.model.CommandEnum;
@@ -23,6 +24,7 @@ public class RobotController {
     public RobotController(Table gameTable) {
         this.gameTable = gameTable;
         this.robotService = new RobotService();
+        this.commandFactory = new CommandFactory(gameTable);
     }
 
     /**
@@ -57,19 +59,23 @@ public class RobotController {
 
     private void initGame(String input) throws UnsupportedCommandException, PositionOutOfBoundException {
         isRobotPlaced = true;
-        gameTable.setRobot(new Robot());
-        commandFactory = new CommandFactory();
+        gameTable.addRobot(new Robot());
         operateRobot(gameTable, commandFactory.getCommand(input));
     }
 
     public void operateRobot(Table table, Command command) throws UnsupportedCommandException, PositionOutOfBoundException {
-        RobotService robotService = new RobotService();
-
-        Optional<Position> newPosition = command.execute(table.getRobot().getPosition());
+        Robot robot = table.getActiveRobot();
+        Optional<Position> newPosition = command.execute(robot.getPosition());
 
         if (newPosition.isPresent()) {
+            if(!robotService.validateRobotOccupancy(table, newPosition.get())) {
+                if(command instanceof PlaceCommand) {
+                    table.removeRobot(robot.getId());
+                }
+                throw new PositionOutOfBoundException(Constants.POSITION_OCCUPIED_MESSAGE);
+            }
             if (robotService.validateRobotPosition(table, newPosition.get())) {
-                table.getRobot().setPosition(new Position(newPosition.get().getX(), newPosition.get().getY(), newPosition.get().getFacing()));
+                robot.setPosition(new Position(newPosition.get().getX(), newPosition.get().getY(), newPosition.get().getFacing()));
             } else {
                 commandFactory.getCommand(CommandEnum.REPORT.toString()).execute(table.getRobot().getPosition());
                 throw new PositionOutOfBoundException(Constants.INVALID_POSITION_MESSAGE);
